@@ -1,0 +1,44 @@
+[
+  {
+    "id": "001",
+    "title": "CYBER 17: বাংলাদেশের সাইবার সিকিউরিটি ক্ষেত্রের নতুন প্রজন্মের রক্ষাকবচ",
+    "author": "MR HIDDEN BBHH",
+    "date": "2024-02-20",
+    "category": "Politics",
+    "summary": "সাইবার হুমকি ক্রমবর্ধমান হচ্ছে এবং সেই সঙ্গে নিরাপত্তা চ্যালেঞ্জও। CYBER 17 নামে নতুন সাইবার সিকিউরিটি টিমটি বাংলাদেশে অনলাইন নিরাপত্তা এবং হ্যাকারদের বিরুদ্ধে সুরক্ষা বৃদ্ধিতে অগ্রণী ভূমিকা রাখছে। এই নিউজে জানানো হয়েছে কিভাবে CYBER 17 প্রযুক্তি এবং নীতি ব্যবহার করে সাইবার জগতকে নিরাপদ রাখছে।",
+    "content": "বর্তমান ডিজিটাল যুগে সাইবার হুমকি প্রতিনিয়ত বাড়ছে। ব্যক্তিগত তথ্য, সরকারি নথি এবং বড় কোম্পানির ডেটা সবই এখন অনলাইনে ঝুঁকিতে। এই চ্যালেঞ্জ মোকাবিলায় CYBER 17 নামে একটি নতুন সাইবার সিকিউরিটি টিম কাজ শুরু করেছে।
+টিমের প্রতিষ্ঠাতা MR HIDDEN BBHH বলেন, "আমরা চাই বাংলাদেশে সাইবার নিরাপত্তার মান উন্নত হোক। শুধু প্রতিরক্ষা নয়, আমরা হ্যাকারদের কৌশল বোঝার মাধ্যমে প্রিভেন্টিভ মেকানিজমও তৈরি করি।"
+CYBER 17 মূলত তিনটি ক্ষেত্রে কাজ করছে:
+সাইবার হুমকি বিশ্লেষণ: নতুন ভাইরাস এবং ম্যালওয়্যার সনাক্ত করা।
+ডাটা প্রটেকশন এবং এডুকেশন: ব্যক্তিগত ও ব্যবসায়িক তথ্য সুরক্ষা নিশ্চিত করা এবং সচেতনতা বৃদ্ধি করা।
+ইথিক্যাল হ্যাকিং ও পেন-টেস্টিং: বিভিন্ন প্রতিষ্ঠানকে তাদের সিস্টেম দুর্বলতা শনাক্ত করতে সহায়তা করা।
+বিশেষজ্ঞরা বলছেন, CYBER 17-এর মতো উদ্যোগ দেশের ডিজিটাল নিরাপত্তা ক্ষেত্রে গুরুত্বপূর্ণ ভূমিকা রাখবে। টিমের ধাপে ধাপে উদ্ভাবনী প্রযুক্তি এবং সচেতনতা বৃদ্ধি প্রক্রিয়া দেশের অনলাইন নিরাপত্তা উন্নত করতে সহায়ক হবে।",
+    "image": "https://d.top4top.io/p_3702ne26p0.png",
+    "videoUrl": "",
+    "featured": "hero"
+  },
+  {
+    "id": "002",
+    "title": "Breakthrough in Quantum Computing Announced",
+    "author": "Dr. Michael Chen",
+    "date": "2024-02-19",
+    "category": "Technology",
+    "summary": "Scientists achieve quantum supremacy with new 1000-qubit processor.",
+    "content": "Researchers at Quantum Dynamics have unveiled a revolutionary quantum computer that promises to solve complex problems in seconds that would take traditional supercomputers thousands of years. The new system, named 'Quantum Leap,' features a 1000-qubit processor that maintains coherence at room temperature, a breakthrough that could finally make quantum computing commercially viable.",
+    "image": "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800",
+    "videoUrl": "",
+    "featured": "trending"
+  },
+  {
+    "id": "003",
+    "title": "Deep Sea Expedition Discovers New Species",
+    "author": "Dr. Robert Martinez",
+    "date": "2024-02-16",
+    "category": "Science",
+    "summary": "Marine biologists uncover dozens of previously unknown species in the Mariana Trench.",
+    "content": "An international team of marine biologists has returned from a groundbreaking expedition to the Mariana Trench with discoveries that challenge our understanding of life in extreme environments. Using advanced deep-sea submersibles, the team documented over 50 new species, including a bioluminescent octopus and a fish that appears to live at depths previously thought impossible for vertebrates.",
+    "image": "https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=800",
+    "videoUrl": "",
+    "featured": "special"
+  }
+]
