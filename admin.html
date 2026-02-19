@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>অ্যাডমিন প্যানেল - The Chronicle</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="theme-toggle">
+        <button id="themeToggle" aria-label="Toggle dark mode">
+            <i class="fas fa-moon"></i>
+        </button>
+    </div>
+
+    <header class="site-header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="site-title">অ্যাডমিন প্যানেল</h1>
+                <p class="site-tagline">নিউজ ম্যানেজমেন্ট সিস্টেম</p>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> ওয়েবসাইট</a></li>
+                    <li><a href="admin.html" class="active"><i class="fas fa-dashboard"></i> ড্যাশবোর্ড</a></li>
+                    <li><a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> লগআউট</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="admin-main">
+        <div class="container">
+            <!-- অ্যাডমিন প্রোফাইল ও পরিসংখ্যান -->
+            <div class="admin-stats">
+                <div class="stat-card">
+                    <i class="fas fa-newspaper"></i>
+                    <div class="stat-info">
+                        <span class="stat-value" id="totalArticles">0</span>
+                        <span class="stat-label">মোট নিউজ</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-eye"></i>
+                    <div class="stat-info">
+                        <span class="stat-value" id="todayViews">0</span>
+                        <span class="stat-label">আজকের ভিউ</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-users"></i>
+                    <div class="stat-info">
+                        <span class="stat-value" id="totalAuthors">0</span>
+                        <span class="stat-label">লেখক</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-comments"></i>
+                    <span class="stat-value" id="totalComments">0</span>
+                    <span class="stat-label">মন্তব্য</span>
+                </div>
+            </div>
+
+            <!-- নিউজ ফর্ম -->
+            <section class="admin-section">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <i class="fas fa-edit"></i> নিউজ এডিট/এড করুন
+                        <span class="accent-line"></span>
+                    </h2>
+                    <button class="btn-secondary" onclick="resetForm()">
+                        <i class="fas fa-undo"></i> ফর্ম রিসেট
+                    </button>
+                </div>
+                
+                <form id="articleForm" class="admin-form">
+                    <input type="hidden" id="articleId" value="">
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="title"><i class="fas fa-heading"></i> শিরোনাম *</label>
+                            <input type="text" id="title" placeholder="নিউজের শিরোনাম লিখুন" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="author"><i class="fas fa-user"></i> লেখক *</label>
+                            <input type="text" id="author" placeholder="লেখকের নাম" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="date"><i class="fas fa-calendar"></i> তারিখ *</label>
+                            <input type="date" id="date" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="category"><i class="fas fa-tag"></i> ক্যাটাগরি *</label>
+                            <select id="category" required>
+                                <option value="">ক্যাটাগরি নির্বাচন করুন</option>
+                                <option value="Politics">রাজনীতি</option>
+                                <option value="Technology">প্রযুক্তি</option>
+                                <option value="Business">অর্থনীতি</option>
+                                <option value="Sports">খেলা</option>
+                                <option value="Entertainment">বিনোদন</option>
+                                <option value="International">আন্তর্জাতিক</option>
+                                <option value="Video">ভিডিও</option>
+                                <option value="Special">বিশেষ প্রতিবেদন</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="summary"><i class="fas fa-align-left"></i> সংক্ষিপ্ত বিবরণ *</label>
+                        <textarea id="summary" rows="3" placeholder="নিউজের সংক্ষিপ্ত বিবরণ দিন" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="content"><i class="fas fa-file-alt"></i> পূর্ণ বিবরণ *</label>
+                        <div class="editor-toolbar">
+                            <button type="button" onclick="insertFormat('bold')"><i class="fas fa-bold"></i></button>
+                            <button type="button" onclick="insertFormat('italic')"><i class="fas fa-italic"></i></button>
+                            <button type="button" onclick="insertFormat('underline')"><i class="fas fa-underline"></i></button>
+                            <button type="button" onclick="insertFormat('link')"><i class="fas fa-link"></i></button>
+                            <button type="button" onclick="insertFormat('image')"><i class="fas fa-image"></i></button>
+                        </div>
+                        <textarea id="content" rows="10" placeholder="পূর্ণ বিবরণ লিখুন" required></textarea>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="image"><i class="fas fa-image"></i> ছবির URL *</label>
+                            <input type="url" id="image" placeholder="https://example.com/image.jpg" required>
+                            <div class="image-preview" id="imagePreview"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="videoUrl"><i class="fab fa-youtube"></i> ভিডিও URL (ঐচ্ছিক)</label>
+                            <input type="url" id="videoUrl" placeholder="https://youtube.com/watch?v=...">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="featured"><i class="fas fa-star"></i> ফিচার্ড অবস্থান</label>
+                            <select id="featured">
+                                <option value="">নিয়মিত নিউজ</option>
+                                <option value="hero">হিরো স্লাইডার</option>
+                                <option value="trending">ট্রেন্ডিং</option>
+                                <option value="video">ভিডিও নিউজ</option>
+                                <option value="special">বিশেষ প্রতিবেদন</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="status"><i class="fas fa-circle"></i> স্ট্যাটাস</label>
+                            <select id="status">
+                                <option value="published">প্রকাশিত</option>
+                                <option value="draft">খসড়া</option>
+                                <option value="scheduled">নির্ধারিত</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label><i class="fas fa-tags"></i> ট্যাগস</label>
+                        <input type="text" id="tags" placeholder="ট্যাগ লিখুন (কমা দিয়ে আলাদা করুন)">
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">
+                            <i class="fas fa-save"></i> সেভ করুন
+                        </button>
+                        <button type="button" class="btn-preview" onclick="previewArticle()">
+                            <i class="fas fa-eye"></i> প্রিভিউ
+                        </button>
+                        <button type="button" class="btn-secondary" onclick="resetForm()">
+                            <i class="fas fa-undo"></i> রিসেট
+                        </button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- নিউজ লিস্ট -->
+            <section class="admin-section">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <i class="fas fa-list"></i> নিউজ তালিকা
+                        <span class="accent-line"></span>
+                    </h2>
+                    <div class="list-controls">
+                        <input type="text" id="searchArticles" placeholder="খুঁজুন...">
+                        <select id="filterCategory">
+                            <option value="">সব ক্যাটাগরি</option>
+                            <option value="Politics">রাজনীতি</option>
+                            <option value="Technology">প্রযুক্তি</option>
+                            <option value="Business">অর্থনীতি</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="table-responsive">
+                    <table class="articles-table">
+                        <thead>
+                            <tr>
+                                <th>ছবি</th>
+                                <th>শিরোনাম</th>
+                                <th>ক্যাটাগরি</th>
+                                <th>লেখক</th>
+                                <th>তারিখ</th>
+                                <th>স্ট্যাটাস</th>
+                                <th>অ্যাকশন</th>
+                            </tr>
+                        </thead>
+                        <tbody id="articlesList">
+                            <!-- Articles will be listed here -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="pagination" id="pagination">
+                    <!-- Pagination will be here -->
+                </div>
+            </section>
+
+            <!-- ব্যাকআপ ও রিস্টোর -->
+            <section class="admin-section">
+                <h2 class="section-title">
+                    <i class="fas fa-database"></i> ব্যাকআপ ও রিস্টোর
+                    <span class="accent-line"></span>
+                </h2>
+                
+                <div class="backup-controls">
+                    <button onclick="backupData()" class="btn-primary">
+                        <i class="fas fa-download"></i> ব্যাকআপ নিন
+                    </button>
+                    
+                    <div class="restore-area">
+                        <label for="restoreFile" class="btn-secondary">
+                            <i class="fas fa-upload"></i> রিস্টোর করুন
+                        </label>
+                        <input type="file" id="restoreFile" accept=".json" style="display: none;">
+                    </div>
+
+                    <button onclick="syncWithGitHub()" class="btn-github">
+                        <i class="fab fa-github"></i> গিটহাবে সিঙ্ক
+                    </button>
+                </div>
+
+                <div class="backup-info">
+                    <p><i class="fas fa-info-circle"></i> সর্বশেষ ব্যাকআপ: <span id="lastBackup">কখনো নেওয়া হয়নি</span></p>
+                </div>
+            </section>
+
+            <!-- সেটিংস -->
+            <section class="admin-section">
+                <h2 class="section-title">
+                    <i class="fas fa-cog"></i> সেটিংস
+                    <span class="accent-line"></span>
+                </h2>
+
+                <div class="settings-grid">
+                    <div class="setting-item">
+                        <label>
+                            <input type="checkbox" id="autoPublish" checked>
+                            স্বয়ংক্রিয় প্রকাশ
+                        </label>
+                    </div>
+                    <div class="setting-item">
+                        <label>
+                            <input type="checkbox" id="emailNotification">
+                            ইমেইল নোটিফিকেশন
+                        </label>
+                    </div>
+                    <div class="setting-item">
+                        <label>
+                            <input type="checkbox" id="commentsModeration">
+                            মন্তব্য মডারেশন
+                        </label>
+                    </div>
+                    <div class="setting-item">
+                        <label>
+                            <select id="articlesPerPage">
+                                <option value="10">১০টি নিউজ/পৃষ্ঠা</option>
+                                <option value="20">২০টি নিউজ/পৃষ্ঠা</option>
+                                <option value="50">৫০টি নিউজ/পৃষ্ঠা</option>
+                            </select>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="password-change">
+                    <h3>পাসওয়ার্ড পরিবর্তন</h3>
+                    <form id="passwordChangeForm">
+                        <div class="form-group">
+                            <input type="password" id="currentPassword" placeholder="বর্তমান পাসওয়ার্ড">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" id="newPassword" placeholder="নতুন পাসওয়ার্ড">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" id="confirmPassword" placeholder="নতুন পাসওয়ার্ড (আবার)">
+                        </div>
+                        <button type="submit" class="btn-primary">পাসওয়ার্ড পরিবর্তন করুন</button>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- প্রিভিউ মোডাল -->
+    <div id="previewModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>প্রিভিউ</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body" id="previewContent">
+                <!-- Preview content will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/articles.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article - The Chronicle</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="theme-toggle">
+        <button id="themeToggle" aria-label="Toggle dark mode">
+            <i class="fas fa-moon"></i>
+        </button>
+    </div>
+
+    <header class="site-header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="site-title">The Chronicle</h1>
+                <p class="site-tagline">Premium News & Analysis</p>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">Politics</a></li>
+                    <li><a href="#">Technology</a></li>
+                    <li><a href="#">Business</a></li>
+                    <li><a href="#">Culture</a></li>
+                    <li><a href="#">Video</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="article-main">
+        <div class="container">
+            <article class="full-article" id="articleContent">
+                <!-- Article content will be populated by JavaScript -->
+            </article>
+
+            <!-- Share Buttons -->
+            <div class="share-section">
+                <h3>Share this article</h3>
+                <div class="share-buttons">
+                    <button class="share-btn twitter" onclick="shareOnTwitter()"><i class="fab fa-twitter"></i> Twitter</button>
+                    <button class="share-btn facebook" onclick="shareOnFacebook()"><i class="fab fa-facebook"></i> Facebook</button>
+                    <button class="share-btn linkedin" onclick="shareOnLinkedIn()"><i class="fab fa-linkedin"></i> LinkedIn</button>
+                    <button class="share-btn copy" onclick="copyArticleLink()"><i class="fas fa-link"></i> Copy Link</button>
+                </div>
+            </div>
+
+            <!-- Comments Section -->
+            <section class="comments-section">
+                <h3>Comments</h3>
+                <div id="disqus_thread"></div>
+                <script>
+                    var disqus_config = function () {
+                        this.page.url = window.location.href;
+                        this.page.identifier = new URLSearchParams(window.location.search).get('id');
+                    };
+                    
+                    (function() {
+                        var d = document, s = d.createElement('script');
+                        s.src = 'https://your-disqus-shortname.disqus.com/embed.js';
+                        s.setAttribute('data-timestamp', +new Date());
+                        (d.head || d.body).appendChild(s);
+                    })();
+                </script>
+            </section>
+
+            <!-- Related Articles -->
+            <section class="related-articles">
+                <h2 class="section-title">Read More <span class="accent-line"></span></h2>
+                <div class="article-grid" id="relatedArticles">
+                    <!-- Related articles will be populated -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <!-- Same footer as index.html -->
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>The Chronicle</h3>
+                    <p>Premium news since 2024</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="admin.html">Admin</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h4>Follow Us</h4>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 The Chronicle. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/articles.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // Load article based on URL parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const articleId = urlParams.get('id');
+        if (articleId) {
+            loadArticle(articleId);
+        }
+    </script>
+</body>
+</html>
